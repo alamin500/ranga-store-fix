@@ -3,7 +3,6 @@ const loadProducts = () => {
   showProducts(data);
 };
 
-
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
@@ -38,7 +37,6 @@ const addToCart = (id, price) => {
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
-  console.log(converted)
   return converted;
 };
 
@@ -82,6 +80,5 @@ const updateTotal = () => {
     setInnerText("total", grandTotal);
 
     document.getElementById("total").innerText = grandTotal.toFixed(2);
-    console.log('p',getInputValue("total-tax"))
 };
 loadProducts();
