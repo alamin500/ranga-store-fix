@@ -15,13 +15,13 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${product.image}></img>
       </div>
-      <h3>${product.title.slice(0,25)}</h3>
+      <h3>${product.title.slice(0,20)}</h3>
       <p>Category: ${product.category}</p>
-      <h2>Price:  ${product.price}</h2>
-      <p>Rating: ${product.rating.rate} </p>
-      <p>Rated this product: ${product.rating.count}</p>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <h2 class="text-danger">Price: $${product.price}</h2>
+      <p>Rating: <strong>${product.rating.rate} </strong></p>
+      <p>Rated this product: <strong>${product.rating.count}</strong></p>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-danger">add to cart</button>
+      <button id="details-btn" class="btn border-success">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -58,6 +58,7 @@ const setInnerText = (id, value) => {
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
+  setInnerText("delivery-charge", 20);
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", priceConverted * 0.2);
